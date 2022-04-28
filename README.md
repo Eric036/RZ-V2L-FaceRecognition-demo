@@ -8,14 +8,14 @@
 
 SDK compilation requires opencv dnn library
 
-#### Save face feature vector and quit program
+#### Save face feature vector and program exit
 press 'S' or 's' to save face feature vector. Press the button once to save the face feature vector in the current frame. When there are multiple faces, only the last face feature vector is saved.
 
 Face feature vector save path: exe/face_vectors/person***.bin.
 
 Save file naming method: person+*(*represents the number of face feature vectors),If you want to display the real name, you can change the corresponding face feature vector file to the real name, such as eric.bin.
 
-press 'Q' or 'q' to quit program
+press 'Q' or 'q' to exit program
 
 #### Demo effect
 
