@@ -2,11 +2,11 @@
 
 #### BSP-version
 
-[^BSP]: BSP: RZV2L/RZV2L-SMARC-EVK/Version: 1.0
+BSP: RZV2L/RZV2L-SMARC-EVK/Version: 1.0
 
 #### SDK
 
-SDK compilation requires opencv dnn library
+SDK compilation requires extra library：opencv dnn
 
 #### Save face feature vector and program exit
 press 'S' or 's' to save face feature vector. Press the button once to save the face feature vector in the current frame. When there are multiple faces, only the last face feature vector is saved.
