@@ -19,4 +19,4 @@ press 'Q' or 'q' to exit program
 
 #### Demo effect
 
-<video src="F:\Works\github\RZ-V2L-FaceRecognition-demo\demo.mp4"></video>
+<video src="https://github.com/Eric036/RZ-V2L-FaceRecognition-demo/demo.mp4"></video>
