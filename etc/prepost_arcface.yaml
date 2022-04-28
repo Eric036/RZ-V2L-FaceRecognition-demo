@@ -1,0 +1,87 @@
+#######################################
+# Input data
+#######################################
+input_to_pre:
+  -
+    name: "rgb_data"
+    format: "RGB"
+    order: "HWC"
+    shape: [128, 128, 3]
+    type: "uint8"
+
+input_to_body:
+  -
+    name: "data"  
+    format: "RGB"
+    order: "HWC"
+    shape: [112, 112, 3] 
+    type: "fp16"
+
+#######################################
+# Output data
+#######################################
+output_from_body:
+  -
+    name: "fc1"
+    shape: [512]
+    order: "C"
+    type: "fp16"
+
+output_from_post:
+  -
+    name: "post_fc1"
+    shape: [512]
+    order: "C"
+    type: "fp32"
+
+#######################################
+# Preprocess
+#######################################
+preprocess:
+  -
+    src      : ["rgb_data"]
+    dest     : ["data"]
+    operations:
+    #-
+    #  op: transpose
+    #  param:
+    #    WORD_SIZE: 0   # 1Byte        # 2Byte
+    #   IS_CHW2HWC: 1   # CHW to HWC  # HWC to CHW
+    
+    -
+      op: resize_hwc
+      param:
+        RESIZE_ALG: 1 # "Bilinear"
+        DATA_TYPE: 0 # "uint8"
+    
+        shape_out: [112, 112]
+    
+    -  
+      op: cast_any_to_fp16
+      param:
+        DIN_FORMAT: 0
+    -  
+      op: normalize
+      param:
+        DOUT_RGB_ORDER: 0 # Output RGB order = Input RGB order
+        cof_add: [0.0, 0.0, 0.0]
+        cof_mul: [1.0, 1.0, 1.0]
+
+#######################################
+# Postprocess
+#######################################
+postprocess:
+  -
+    src: ["fc1"]
+    dest: ["post_fc1"]
+    operations:
+    #-
+    #  op: transpose
+    #  param:
+    #    WORD_SIZE: 1 # 2Byte
+    #    IS_CHW2HWC: 0 # HWC to CHW
+      
+    -
+      op : cast_fp16_fp32
+      param:
+        CAST_MODE: 0

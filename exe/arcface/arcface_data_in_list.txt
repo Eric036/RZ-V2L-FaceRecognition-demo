@@ -1,0 +1,5 @@
+Input_node_name: rgb_data
+         Address: 0x70000000
+         Channel: 3
+         Width  : 128
+         Height : 128

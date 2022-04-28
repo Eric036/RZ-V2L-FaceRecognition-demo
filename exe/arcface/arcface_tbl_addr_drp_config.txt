@@ -1,0 +1,4 @@
+resize_hwc.mem                    1027334560     116260
+imagescaler.mem                   1027450832     108452
+actfunc.mem                       1027559296     185504
+cast_fp16_fp32.mem                1027744800     101548

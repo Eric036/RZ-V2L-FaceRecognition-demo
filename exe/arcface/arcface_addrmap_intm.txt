@@ -1,0 +1,9 @@
+data_in 70000000 c000
+data 7000c000 2afbd00
+data_out 72b07d00 800
+work 72b08500 1f80
+weight 72b0a480 7c71e90
+drp_config 7a77c340 f9e60
+drp_param 7a8761c0 19b0
+desc_aimac 7a877b80 84570
+desc_drp 7a8fc100 2040
